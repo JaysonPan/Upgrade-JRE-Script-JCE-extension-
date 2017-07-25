@@ -1,4 +1,6 @@
 #!/bin/bash
+#for downloading JRE
+#Change it if you want other format
 ext="tar.gz"
 jre_version=8
 
@@ -10,5 +12,8 @@ readonly jre_download_url2=$(curl -s $jre_download_url1 | egrep -o "\/technetwor
 readonly jre_download_url3="${url}${jre_download_url2}"
 readonly jre_download_url4=$(curl -s $jre_download_url3 | egrep -o "http\:\/\/download.oracle\.com\/otn-pub\/java\/jdk\/[7-8]u[0-9]+\-(.*)+\/jre-[7-8]u[0-9]+(.*)linux-x64.$ext")
 wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" -N ${jre_download_url4[0]}
+
+
+#for downloading JCE
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip"
 
